@@ -7,6 +7,28 @@ const Products = {
   displayProducts: productsJson => {
 
     // Render the products here
+    const container = document.getElementById('grid')
+    container.innerHTML = ""
+
+    Object.values(productsJson.data.products.edges).forEach(edge => {
+
+      const product = edge['node']
+      const { title, images: {edges : [{node:{originalSrc}}]}, tags, priceRange:{minVariantPrice:{amount}}} = product
+
+      const card = `<div class="card">
+        <div class="product__image">
+          <image src="${originalSrc}" alt="${title}">
+        </div>
+        <div class="product__info">
+          <h2 class="product__title">${title}</h2>
+          <p class="product__price">&#36;${amount}</p>
+          <p class="product__tags">Tags: <em>${tags}<em></p>
+        </div>
+      </div>`
+      
+
+      container.innerHTML += card
+    });
 
   },
 
