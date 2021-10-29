@@ -84,7 +84,7 @@ body {
 }
 
 .card .product__title {
-  height: 56px;
+  font-size: 22px;
 }
 
 .card .product__price {
