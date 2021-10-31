@@ -8,7 +8,6 @@ const Products = {
 
     // Render the products here
     const container = document.getElementById('grid')
-    container.innerHTML = ""
 
     Object.values(productsJson.data.products.edges).forEach(edge => {
 
